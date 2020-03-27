@@ -1,0 +1,17 @@
+RewriteEngine on
+RewriteCond %{ENV:REDIRECT_myVar2} !^$
+RewriteRule ^ - [L]
+RewriteRule (^admin\.php$) /catalog-site2.ru/admin/ [R,L]
+RewriteRule (admin[^\.]*) /catalog-site2.ru/admin.php [L,E=myVar2:uraaaaaaa]
+
+RewriteRule (^index.*) index.php [L,E=myVar:$1]
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(ru/index)
+RewriteRule (.*) /catalog-site2.ru/index/$1 [R,L,E=myVar2:bb]
+
+
+
+# сделать перенаправление в конце любых строк, которые не файл, на индекс. чтоб в роуте проверилось что нет страницы и выдало мою 404 страницу
+
+
