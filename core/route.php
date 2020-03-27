@@ -96,7 +96,7 @@
             $host = explode('/', Route::$URI);
             $host = $host[1];
             header("Location: /$host/".Route::$file_entry_point."/page404");
-           # header("Location: /$host/index/page404");
+
             exit;
         }
 
